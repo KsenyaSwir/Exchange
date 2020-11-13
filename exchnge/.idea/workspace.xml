@@ -45,7 +45,8 @@
       <workItem from="1604585429720" duration="21455000" />
       <workItem from="1604912318152" duration="44532000" />
       <workItem from="1605185599519" duration="14602000" />
-      <workItem from="1605203272739" duration="11206000" />
+      <workItem from="1605203272739" duration="11563000" />
+      <workItem from="1605255532107" duration="19729000" />
     </task>
     <servers />
   </component>
@@ -53,6 +54,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="586" y="198" key="#Inspections" timestamp="1605275623916">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="198" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1605275623916" />
     <state x="728" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604586959469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -61,9 +66,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605169987687" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605191147166">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605256914146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605191147166" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605256914146" />
   </component>
 </project>

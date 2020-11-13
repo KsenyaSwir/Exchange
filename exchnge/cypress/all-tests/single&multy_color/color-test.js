@@ -18,35 +18,83 @@ describe('Single and multy color test', () => {
         })
     })
 
-    it('Navigate and search', () => {
-        cy.fixture('products').then(products => {
-            MainPage.open();
-            MainPage.performSearch('Google Pixel Buds');
-        })
-    })
+    let productsToSearch = [
+        {name: "Bellroy Slim Backpack for Google Pixelbook Go"},
+        {name: "Google Pixel Buds"}
+    ]
 
-    it('Click to buy', () => {
-        cy.fixture('products').then(products => {
-            for (let  obj of products.products) {
-                if(obj.display_name === "Google Pixel Buds") {
-                    SearchResultsPage.getProductByDocId(`${obj.doc_id}`).should('exist')
-                    SearchResultsPage.clickBuyOnNextPage(obj)
+    productsToSearch.forEach((name) => {
+        it('Navigate and search', () => {
+            cy.fixture('products').then(products => {
+                MainPage.open();
+                MainPage.performSearch(name.name);
+            })
+        })
+
+
+        it('Find and click Buy', () => {
+            cy.fixture('products').then(products => {
+                for (let obj of products.products) {
+                    if (obj.display_name === name.name) {
+                        SearchResultsPage.getProductByDocId(`${obj.doc_id}`).should('exist')
+                        SearchResultsPage.clickBuyOnNextPage(obj)
+                    }
                 }
-            }
+            })
         })
-    })
 
-    it('Click to bu', () => {
-        cy.fixture('products').then(products => {
-            for (let  obj of products.products) {
-                if(obj.display_name === "Google Pixel Buds") {
-                    SearchResultsPage.findElementByColor(obj)
+        /*it('Find by color', () => {
+            cy.fixture('products').then(products => {
+                cy.log(name.name)
+                if(name.name == "Google Pixel Buds") {
+                for (let obj of products.products) {
+                        SearchResultsPage.findElementByColor(obj)
+                    }
                 }
-            }
-        })
-    })
+                else if(name.name == "Bellroy Slim Backpack for Google Pixelbook Go"){
+                    cy.log(1)
+                }
+            })
+        })*/
 
+        it('Find by color', () => {
+            cy.fixture('products').then(products => {
+                for (let  obj of products.products) {
+                    if(obj.display_name === "Google Pixel Buds") {
+                        SearchResultsPage.addColor(obj)
+                    }
+                    else if (name.name === "Bellroy Slim Backpack for Google Pixelbook Go"){
+
+                        SearchResultsPage.addProductToCard(obj)
+                    }
+                }
+            })
+        })
+
+/*
+        it('Add product to card', () => {
+            cy.fixture('products').then(products => {
+                for (let obj of products.products) {
+                    ///cy.log(obj)
+                    if (name.name === "Google Pixel Buds") {
+                        cy.log(SearchResultsPage.findElementByColor(obj))
+
+                       // SearchResultsPage.addProductToCard(SearchResultsPage.add(SearchResultsPage.findElementByColor(obj)))
+                    }
+                    else if (name.name === "Bellroy Slim Backpack for Google Pixelbook Go"){
+                        SearchResultsPage.addProductToCard(obj)
+                    }
+                }
+            })
+        })*/
+    })
+    /*
     it('Remove', () => {
         cy.contains('Remove').click()
-    })
+
+
+    })*/
 })
+
+
+
