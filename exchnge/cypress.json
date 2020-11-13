@@ -1,0 +1,5 @@
+{
+  "projectId": "8g3gk6",
+  "integrationFolder": "cypress/all-tests",
+   "chromeWebSecurity": false
+}
