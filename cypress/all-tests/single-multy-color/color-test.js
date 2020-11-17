@@ -19,18 +19,19 @@ describe('Single and multy color test', () => {
     })
 
     let productsToSearch = [
-        {name: "Bellroy Slim Backpack for Google Pixelbook Go"},
-        {name: "Google Pixel Buds"}
+        {name: "Bellroy Slim Backpack for Google Pixelbook Go", url: "bellroy_backpack_pixelbook_go"},
+        {name: "Google Pixel Buds", url: "pixel_buds"}
     ]
 
     productsToSearch.forEach((name) => {
         it('Navigate and search', () => {
             cy.log('GIVEN User is at the main page')
-            cy.fixture('products').then(products => {
-                MainPage.open();
-                cy.log('WHEN User performs search')
-                MainPage.performSearch(name.name);
-                cy.log('THEN Product is added into the Storage')
+            cy.fixture('products').then(product => {
+                    MainPage.open();
+                    cy.log('WHEN User performs search')
+                    MainPage.performSearch(name.name);
+                    cy.log('THEN search is done')
+                    SearchResultsPage.getProductByDocId(name.url).should('exist')
             })
         })
 
@@ -39,10 +40,10 @@ describe('Single and multy color test', () => {
             cy.fixture('products').then(products => {
                 for (let obj of products.products) {
                     if (obj.display_name === name.name) {
-                        SearchResultsPage.getProductByDocId(`${obj.doc_id}`).should('exist')
                         cy.log('WHEN User click Buy on the next page')
-                        SearchResultsPage.clickBuyOnNextPage(obj)
+                        SearchResultsPage.getProductByDocId(`${obj.doc_id}`).should('exist')
                         cy.log('THEN page with product open')
+                        SearchResultsPage.clickBuyOnNextPage(obj)
                     }
                 }
             })
@@ -51,16 +52,15 @@ describe('Single and multy color test', () => {
         it('Find by color ', () => {
             cy.log('GIVEN User is at the page product colors')
             cy.fixture('products').then(products => {
+                cy.log('WHEN product exist')
                 for (let obj of products.products) {
                     if (name.name === "Bellroy Slim Backpack for Google Pixelbook Go" && obj.display_name === "Bellroy Slim Backpack for Google Pixelbook Go") {
-                        cy.log('WHEN product has single color')
-                        SearchResultsPage.addProductToCard(obj)
                         cy.log('THEN product data is checked')
+                        SearchResultsPage.addProductToCard(obj)
                     } else if (name.name === "Google Pixel Buds" && obj.display_name === "Google Pixel Buds") {
-                        cy.log('WHEN product hac multy color')
+                        cy.log('THEN product had been added to card')
                         SearchResultsPage.addColor(obj)
                         SearchResultsPage.addProductToCard(obj)
-                        cy.log('THEN product had been added to card')
                     }
                 }
             })

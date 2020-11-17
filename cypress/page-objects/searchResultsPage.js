@@ -6,9 +6,6 @@ class SearchResultsPage {
     clickBuyOnNextPage(obj) {
         cy.xpath(`//a[@class = "card-link-target"][@href="/product/${obj.doc_id}"]`).click()
         cy.get('div[class="hidden-xs bar-container background-white"]').contains('Buy').parent().click()
-        /* cy.get('div[class="roboto-header-text-9"]').should(($div) => {
-             const text = $div.get(0).innerText
-         })*/
 
         if (obj.display_name === "Bellroy Slim Backpack for Google Pixelbook Go") {
             cy.get('div[class="roboto-header-text-9"]').should('exist')
@@ -35,14 +32,15 @@ class SearchResultsPage {
             const assert = require('assert');
             name.toString().includes(obj.display_name)
         })
+        cy.get('option[selected="true"]').invoke('text').then(count => {
+            assert.deepEqual(count, "1")
+        })
         cy.get('span[class="roboto-header-text-6 float-right"]').invoke('text').then(amount => {
             cy.get('div[class="cart-price-bottom-padding text-right"]').invoke('text').then(prise => {
                 assert.deepEqual(amount, prise)
             })
         })
-        cy.get('option[selected="true"]').invoke('text').then(count => {
-            assert.deepEqual(count, "1")
-        })
+
     }
 }
 
