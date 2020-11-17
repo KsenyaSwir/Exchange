@@ -25,7 +25,7 @@ class SearchResultsPage {
 
     addColor(obj) {
         let color = this.findElementByColor(obj)
-        cy.wait(2000)
+        cy.wait(3000)
         cy.contains(color).should('exist').parent().next().next().find('button').click()
         cy.get('button[class="mdc-button mdc-button--unelevated mdc-button--touch GmFillButton GmFillButtonDarkTheme GmTextLabelButton"]').first().click({force: true})
     }
