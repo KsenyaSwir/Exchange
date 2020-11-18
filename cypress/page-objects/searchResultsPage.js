@@ -33,14 +33,15 @@ class SearchResultsPage {
             name.toString().includes(obj.display_name)
         })
         cy.get('option[selected="true"]').invoke('text').then(count => {
-            assert.deepEqual(count, "1")
-        })
-        cy.get('span[class="roboto-header-text-6 float-right"]').invoke('text').then(amount => {
-            cy.get('div[class="cart-price-bottom-padding text-right"]').invoke('text').then(prise => {
-                assert.deepEqual(amount, prise)
+            //assert.deepEqual(count, "1")
+            cy.get('span[class="roboto-header-text-6 float-right"]').invoke('text').then(amount => {
+                cy.get('div[class="cart-price-bottom-padding text-right"]').invoke('text').then(prise => {
+                    amount = amount.toString().slice(1)
+                    prise = prise.toString().slice(1)
+                    expect(amount*1).to.deep.equal(prise * count)
+                })
             })
         })
-
     }
 }
 

@@ -27,11 +27,11 @@ describe('Single and multy color test', () => {
         it('Navigate and search', () => {
             cy.log('GIVEN User is at the main page')
             cy.fixture('products').then(product => {
-                    MainPage.open();
-                    cy.log('WHEN User performs search')
-                    MainPage.performSearch(name.name);
-                    cy.log('THEN search is done')
-                    SearchResultsPage.getProductByDocId(name.url).should('exist')
+                MainPage.open();
+                cy.log('WHEN User performs search')
+                MainPage.performSearch(name.name);
+                cy.log('THEN search is done')
+                SearchResultsPage.getProductByDocId(name.url).should('exist')
             })
         })
 
@@ -42,8 +42,14 @@ describe('Single and multy color test', () => {
                     if (obj.display_name === name.name) {
                         cy.log('WHEN User click Buy on the next page')
                         SearchResultsPage.getProductByDocId(`${obj.doc_id}`).should('exist')
-                        cy.log('THEN page with product open')
                         SearchResultsPage.clickBuyOnNextPage(obj)
+                        if (name.name === 'Bellroy Slim Backpack for Google Pixelbook Go') {
+                            cy.log('THEN page with product open')
+                            cy.get('div[class="roboto-header-text-9"]').should('exist')
+                        } else if (name.name === 'Google Pixel Buds') {
+                            cy.log('THEN page with product will loading after clicking Buy')
+                            cy.get('div[class="hidden-xs bar-container background-white"]').contains('Buy').should('exist')
+                        }
                     }
                 }
             })
@@ -60,6 +66,7 @@ describe('Single and multy color test', () => {
                     } else if (name.name === "Google Pixel Buds" && obj.display_name === "Google Pixel Buds") {
                         cy.log('THEN product had been added to card')
                         SearchResultsPage.addColor(obj)
+                        cy.get('button[class="mdc-button mdc-button--unelevated mdc-button--touch GmFillButton GmFillButtonDarkTheme GmTextLabelButton"]').should('exist')
                         SearchResultsPage.addProductToCard(obj)
                     }
                 }
