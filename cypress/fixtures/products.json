@@ -618,7 +618,7 @@
   "products": [
     {
       "display_name": "Ethernet Adapter for Chromecast with Google TV",
-      "doc_id": "fam_7290_4940",
+      "doc_id": "chromecast_ethernet_adapter_gen_2",
       "end_date": "",
       "end_time": "",
       "featured": false,
@@ -672,7 +672,7 @@
     },
     {
       "display_name": "Nest Thermostat Trim Kit",
-      "doc_id": "fam_6388_4965",
+      "doc_id": "nest_thermostat_trim_kit",
       "end_date": "",
       "end_time": "",
       "featured": false,
@@ -9101,24 +9101,17 @@
         {
           "custom_styles": "",
           "height": 1816,
-          "url": "https://lh3.googleusercontent.com/6jgNgKhgObD8dgd1emso7caVWvgszRSMOPR-Sj8lIaz2pPkay_haA3q2xE-xb1bUEf0fNy1Wx7aDcYhOyTgM",
-          "width": 1816
-        },
-        {
-          "custom_styles": "",
-          "height": 1816,
           "url": "https://lh3.googleusercontent.com/DfVEQYQ81iCHc9eznjl0f1tfZvWUPtm8Q2NfeVbN8TRp4kKRE2LXrIEjZAFRWcqlO4AugP9AET3iF0hRdvJc",
           "width": 1816
         }
       ],
       "locales": [
         "de_DE",
-        "en_AU",
         "en_CA",
-        "en_GB",
-        "en_SG",
+        "fr_CA",
+        "en_AU",
         "en_US",
-        "fr_CA"
+        "en_GB"
       ],
       "name": "Google USB-C to USB-C Cable",
       "order": 137,
@@ -10135,5 +10128,5 @@
       "url": "/product/nest_learning_thermostat_3rd_gen_base"
     }
   ],
-  "updated": 1605694440
+  "updated": 1605870130
 }
