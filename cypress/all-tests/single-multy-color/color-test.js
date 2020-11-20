@@ -23,9 +23,15 @@ describe('Single and multy color test', () => {
         {
             name: "Bellroy Slim Backpack for Google Pixelbook Go",
             url: "bellroy_backpack_pixelbook_go",
-            isSingleColor: true // add price
+            isSingleColor: true,
+            price: 129
         },
-        {name: "Google Pixel Buds", url: "pixel_buds", isSingleColor: false}
+        {
+            name: "Google Pixel Buds",
+            url: "pixel_buds",
+            isSingleColor: false,
+            price: 179
+        }
     ]
 
     productsToSearch.forEach((productToSearch) => {
@@ -53,14 +59,18 @@ describe('Single and multy color test', () => {
                 SearchElements.addProductToCard(productUnderTest);
                 cy.log('THEN User check products data');
                 SearchResultsPage.isProductPresentedInStorage(productUnderTest)
-                SearchResultsPage.checkTotalSum(productUnderTest,1, 129, 179) // modify
+                SearchResultsPage.checkTotalSum(productUnderTest, 1, productUnderTest.price)
             })
         })
 
         it('Remove', () => {
-            if(cy.contains('Remove')){
-                cy.contains('Remove').click()
-            }
+            cy.get('body').then(($body) => {
+                if ($body.text().includes('Remove')) {
+                    cy.contains('Remove').click()
+                } else {
+                    cy.log('No such element')
+                }
+            })
         })
     })
 })

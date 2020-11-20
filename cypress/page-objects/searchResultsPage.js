@@ -24,7 +24,7 @@ class SearchResultsPage {
         })
     }
 
-    checkTotalSum(obj, expectedCount, expectedPriceSingle, expectedPriceMulty) {
+    checkTotalSum(obj, expectedCount, expectedPrice) {
         this.getProductCount().invoke('text').then(count => {
             //assert.deepEqual(count, "1")
             this.getProductAmount().invoke('text').then(amount => {
@@ -32,11 +32,7 @@ class SearchResultsPage {
                     amount = amount.toString().slice(1)
                     price = price.toString().slice(1)
                     expect(count * 1).to.deep.equal(expectedCount)
-                    if (obj.isSingleColor) {
-                        expect(price * 1).to.deep.equal(expectedPriceSingle)
-                    } else {
-                        expect(price * 1).to.deep.equal(expectedPriceMulty)
-                    }
+                    expect(price * 1).to.deep.equal(expectedPrice)
                     expect(amount * 1).to.deep.equal(price * count)
                 })
             })

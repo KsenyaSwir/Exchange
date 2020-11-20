@@ -22,5 +22,4 @@ class SearchByColor {
     }
 }
 
-
 export default new SearchByColor();
