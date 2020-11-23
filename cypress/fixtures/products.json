@@ -4193,6 +4193,92 @@
           "filter_value": "Green"
         }
       ],
+      "images": [
+        {
+          "color": {
+            "color_name": "White",
+            "color_value": "#FFFFFF"
+          },
+          "custom_styles": "",
+          "height": 3024,
+          "locales": [
+            "fr_BE",
+            "nl_BE",
+            "fr_FR",
+            "da_DK",
+            "de_DE",
+            "fi_FI",
+            "nl_NL",
+            "nb_NO",
+            "en_CA",
+            "fr_CA",
+            "it_IT",
+            "en_IE",
+            "es_ES",
+            "en_US",
+            "sv_SE",
+            "en_GB"
+          ],
+          "url": "https://lh3.googleusercontent.com/-y3h8GjHhnIf7nbm3khn7gJYJxRbRbtTVT5HE_KVGwXvj8lboQNo6lbgMOP0wLW71uZWfmb5zn5oF97SN5zG",
+          "width": 2496
+        },
+        {
+          "color": {
+            "color_name": "Black",
+            "color_value": "#000000"
+          },
+          "custom_styles": "",
+          "height": 3024,
+          "locales": [
+            "fr_BE",
+            "nl_BE",
+            "fr_FR",
+            "da_DK",
+            "de_DE",
+            "fi_FI",
+            "nl_NL",
+            "nb_NO",
+            "en_CA",
+            "fr_CA",
+            "it_IT",
+            "en_IE",
+            "es_ES",
+            "en_US",
+            "sv_SE",
+            "en_GB"
+          ],
+          "url": "https://lh3.googleusercontent.com/xlWALTYulBxwWTCLPb1FpbqCaeYzzLtKY22GKhLMg8wf-nFU5W-dFnSE3l6LmNzOH-IjmodL1TlAIYCfJMNQqQ",
+          "width": 2496
+        },
+        {
+          "color": {
+            "color_name": "Green",
+            "color_value": "#A5CABF"
+          },
+          "custom_styles": "",
+          "height": 3024,
+          "locales": [
+            "fr_BE",
+            "nl_BE",
+            "fr_FR",
+            "da_DK",
+            "de_DE",
+            "fi_FI",
+            "nl_NL",
+            "nb_NO",
+            "en_CA",
+            "fr_CA",
+            "it_IT",
+            "en_IE",
+            "es_ES",
+            "en_US",
+            "sv_SE",
+            "en_GB"
+          ],
+          "url": "https://lh3.googleusercontent.com/EBf2EmRqohs--wOhhiAqpzjzxfiuqQbA_kXgxX84kuNJClTQtPYx99CTe4DJbE6i5lNZGcgX44dCgLYBYImw",
+          "width": 2496
+        }
+      ],
       "locales": [
         "da_DK",
         "de_DE",
@@ -10128,5 +10214,5 @@
       "url": "/product/nest_learning_thermostat_3rd_gen_base"
     }
   ],
-  "updated": 1605874167
+  "updated": 1605971933
 }

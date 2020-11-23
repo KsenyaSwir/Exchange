@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Bellroy Slim Backpack for Google Pixelbook Go",
+    "url": "bellroy_backpack_pixelbook_go",
+    "isSingleColor": true,
+    "price": 129,
+    "doc_id": "bellroy_backpack_pixelbook_go"
+  },
+  {
+    "name": "Nomad Rugged Case for Pixel Buds",
+    "url": "nomad_rugged_case_for_pixel_buds",
+    "isSingleColor": true,
+    "price": 29.99,
+    "doc_id": "nomad_rugged_case_for_pixel_buds"
+  }
+]
