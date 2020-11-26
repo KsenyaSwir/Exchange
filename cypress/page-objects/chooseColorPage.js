@@ -1,12 +1,12 @@
-import SearchElements from "./searchElements";
+import GoCardPage from "./goCardPage";
 
-class SearchByColor {
+class ChooseColorPage {
 
     selectProductItemWithColor(obj) {
         let color = this.findElementByColor(obj)
         cy.wait(3000)
         this.getElementWithColor(color).click()
-        SearchElements.getButtonGoToCard().click()
+        GoCardPage.getButtonGoToCard().click()
     }
 
     getElementWithColor(color) {
@@ -22,4 +22,4 @@ class SearchByColor {
     }
 }
 
-export default new SearchByColor();
+export default new ChooseColorPage();

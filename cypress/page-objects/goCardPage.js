@@ -1,7 +1,7 @@
-import SearchByColor from "./searchByColor";
+import ChooseColorPage from "./chooseColorPage";
 
 
-class SearchElements {
+class GoCardPage {
     getProductByDocId(docId) {
         return cy.get(`a[href = "/product/${docId}"]`);
     }
@@ -30,9 +30,9 @@ class SearchElements {
     addProductToCard(product) {
         this.clickBuyOnNextPage(product)
         if (!product.isSingleColor) {
-            SearchByColor.selectProductItemWithColor(product)
+            ChooseColorPage.selectProductItemWithColor(product)
         }
     }
 }
 
-export default new SearchElements();
+export default new GoCardPage();

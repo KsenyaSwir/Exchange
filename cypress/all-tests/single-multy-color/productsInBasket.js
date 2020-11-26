@@ -1,9 +1,9 @@
+
+import BasketPage from "../../page-objects/basketPage";
 import MainPage from "../../page-objects/mainPage";
-import SearchElements from "../../page-objects/searchElements";
+import GoCardPage from "../../page-objects/goCardPage";
 import SearchResultsPage from "../../page-objects/searchResultsPage";
-import Preparations from "../../page-objects/preparations";
-import CheckProductData from "../../page-objects/checkProductData";
-import ChangeProductCount from "../../page-objects/changeProductCount";
+
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
@@ -14,6 +14,8 @@ Cypress.on('fail', (error, runnable) => {
 })
 
 describe('Single and multy color test', () => {
+    const firstProductCount = 1
+    const productCount = 2
     let productsToSearch = [
         {
             "name": "Bellroy Slim Backpack for Google Pixelbook Go",
@@ -31,14 +33,34 @@ describe('Single and multy color test', () => {
         }
     ]
     before(() => {
-
+        cy.log('GIVEN User is at the basket')
         productsToSearch.forEach((productToSearch) => {
-            Preparations.addToBacket(productToSearch)
+            addToBacket(productToSearch)
+            add(productToSearch)
+
+            function addToBacket(productToSearch) {
+                MainPage.open()
+                cy.log('WHEN User performs search')
+                MainPage.performSearch(productToSearch.name)
+                cy.log('THEN search is done')
+                GoCardPage.getProductByDocId(productToSearch.url).should('exist')
+            }
+
+            function add(productToSearch) {
+                cy.log('WHEN User adds product to card')
+                GoCardPage.addProductToCard(productToSearch)
+                cy.log('THEN User check products data')
+                cy.wait(1000)
+                SearchResultsPage.isProductPresentedInStorage(productToSearch)
+            }
         })
     });
     it('Check products, add more and check', () => {
-        CheckProductData.check(productsToSearch, 1)
-        ChangeProductCount.changeProductsCount(productsToSearch)
-        CheckProductData.check(productsToSearch, 5)
+        cy.log('WHEN User check products')
+        BasketPage.check(productsToSearch, firstProductCount)
+        cy.log('AND Selects change products count')
+        BasketPage.changeProductsCount(productsToSearch, productCount)
+        cy.log('THEN User check data after increasing count')
+        BasketPage.check(productsToSearch, productCount)
     })
 })

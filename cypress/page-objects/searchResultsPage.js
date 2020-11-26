@@ -26,7 +26,6 @@ class SearchResultsPage {
 
     checkTotalSum(obj, expectedCount, expectedPrice) {
         this.getProductCount().invoke('text').then(count => {
-            //assert.deepEqual(count, "1")
             this.getProductAmount().invoke('text').then(amount => {
                 this.getProductPrice().invoke('text').then(price => {
                     amount = amount.toString().slice(1)

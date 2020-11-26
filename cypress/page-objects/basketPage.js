@@ -1,6 +1,6 @@
 import SearchResultsPage from "./searchResultsPage";
 
-class CheckProductData {
+class BasketPage {
     check(productsToSearch, counter) {
         SearchResultsPage.getFieldsInForm().each(($item, $el) => {
             expect($item.text()).to.have.string(productsToSearch[$el].name.toString().slice(0, 21))
@@ -22,6 +22,24 @@ class CheckProductData {
         })
     }
 
+    changeProductsCount(productsToSearch, productCount) {
+        this.changeCount(0, productCount);
+        this.changeCount(1, productCount);
+    }
+
+    changeCount(index, count) {
+        cy.get('select').each(($item, $el) => {
+            if ($el === index) {
+                cy.wrap($item).select(`${count}`).then(() => {
+                    cy.wait(3000)
+                    SearchResultsPage.getProductAmount().as('resultSumName')
+                    cy.get('@resultSumName').should('exist')
+                    cy.wait(3000)
+                })
+            }
+        })
+    }
+
     getProductCounts($item) {
         return $item.text() * 1
     }
@@ -31,4 +49,4 @@ class CheckProductData {
     }
 }
 
-export default new CheckProductData()
+export default new BasketPage()

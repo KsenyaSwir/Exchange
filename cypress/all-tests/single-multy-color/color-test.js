@@ -1,6 +1,6 @@
 import SearchResultsPage from "../../page-objects/searchResultsPage";
 import MainPage from "../../page-objects/mainPage";
-import SearchElements from "../../page-objects/searchElements";
+import GoCardPage from "../../page-objects/goCardPage";
 import {getAllProducts} from "../../service/productService";
 import Chance from 'chance';
 
@@ -42,28 +42,24 @@ describe('Single and multy color test', () => {
                 cy.log('WHEN User performs search')
                 MainPage.performSearch(productToSearch.name);
                 cy.log('THEN search is done')
-                SearchElements.getProductByDocId(productToSearch.url).should('exist')
-            })
-        })
+                GoCardPage.getProductByDocId(productToSearch.url).should('exist')
 
-        it('Find and click Buy', () => {
-            cy.log('GIVEN User is at the page with product')
-            cy.fixture('products').then(products => {
-                const productDetails = products.products.filter(product => product.display_name === productToSearch.name);
+                const productDetails = product.products.filter(product => product.display_name === productToSearch.name);
                 let productUnderTest = productDetails[0];
                 productUnderTest.url = productToSearch.url;
                 productUnderTest.isSingleColor = productToSearch.isSingleColor;
                 productUnderTest.price = productToSearch.price;
 
                 cy.log('WHEN User adds product to card');
-                SearchElements.addProductToCard(productUnderTest);
+                GoCardPage.addProductToCard(productUnderTest);
                 cy.log('THEN User check products data');
                 SearchResultsPage.isProductPresentedInStorage(productUnderTest)
                 SearchResultsPage.checkTotalSum(productUnderTest, 1, productUnderTest.price)
+
             })
         })
 
-        it('Remove', () => {
+        after(() => {
             cy.get('body').then(($body) => {
                 if ($body.text().includes('Remove')) {
                     cy.contains('Remove').click()
