@@ -2,7 +2,7 @@ import Chance from 'chance';
 
 describe('Exhange valute test', () => {
 
-    it('Change valute', () => {
+    it('Change valute C6', () => {
         cy.fixture('valutes_data').then(valutes_data => {
             let valutes = randomase(valutes_data);
                 cy.log('--------' + valutes.shortName)

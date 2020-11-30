@@ -35,7 +35,7 @@ describe('Single and multy color test', () => {
     ]
 
     productsToSearch.forEach((productToSearch) => {
-        it('Navigate and search', () => {
+        it('Navigate and search C5', () => {
             cy.log('GIVEN User is at the main page')
             cy.fixture('products').then(product => {
                 MainPage.open();

@@ -27,7 +27,7 @@ describe('Exhange valute test', () => {
         })
     })
 
-    it('Info about project', () => {
+    it('Info about project C7', () => {
 
         cy.fixture('products').then((products) => {
             cy.log('Колличество продуктов: ' + products.products.length)

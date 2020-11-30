@@ -55,7 +55,7 @@ describe('Single and multy color test', () => {
             }
         })
     });
-    it('Check products, add more and check', () => {
+    it('Check products, add more and check C4', () => {
         cy.log('WHEN User check products')
         BasketPage.check(productsToSearch, firstProductCount)
         cy.log('AND Selects change products count')

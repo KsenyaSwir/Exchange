@@ -1,5 +1,14 @@
 {
   "projectId": "8g3gk6",
   "integrationFolder": "cypress/all-tests",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "reporter": "cypress-testrail-logs-screenshots",
+  "reporterOptions": {
+    "domain": "ksenyaswiridova.testrail.io",
+    "username": "ksyu.sviridova.eger@mail.ru",
+    "password": "vSNnwdE2cMLAevdrlaVD",
+    "projectId": 2,
+    "active": true,
+    "testPlanId": 21
+  }
 }
