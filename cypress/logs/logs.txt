@@ -1,0 +1,1 @@
+logs are added to see bags in tests
